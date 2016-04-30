@@ -55,6 +55,7 @@ var app = angular.module('wishlistApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate']
                 localStorage.token = response['data']['data']['token'];
                 $rootScope.userid = response['data']['data']['user']['_id'];
                 $location.path('/wishlist');
+                $rootScope.alerts = [];
             }
             else{
                 $scope.alerts = [{ type: 'danger', msg: response['data']['message'] }];
@@ -67,6 +68,7 @@ var app = angular.module('wishlistApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate']
 .controller('logoutController', function ($location, $rootScope){
     localStorage.removeItem('token');
     $rootScope.userid = null;
+    $rootScope.alerts = [];
     $location.path('/login');
 })
 .controller('registerController', function ($scope, $http, $location, $rootScope) {
