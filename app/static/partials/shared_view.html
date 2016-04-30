@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="wish-header">
+        <div>
+        <h1>{{ name }} Wishes</h1>
+        </div>
+    </div>
+
+    <div data-ng-repeat="item in items track by $index">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                
+                <div class="media">
+                    <div class="media-left">
+                        <div style="height:180px;width:180px">
+                            <a href="{{ item.url }}">
+                                <img class="media-object" data-ng-src="{{ item.thumbnail }}" alt="{{ item.title }}" style="max-height:100%;max-width:100%">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="media-body">
+                        <a href="{{ item.url }}"> <h4 class="media-heading">{{ item.title }}</h4></a>
+                        <p>{{ item.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>

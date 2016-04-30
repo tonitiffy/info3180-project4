@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="wish-header">
+        <div>
+        <h1>Your Wishes</h1>
+        <p>
+            <a href="#/wishlist/add" class="btn btn-default btn-md" role="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Item</a>
+            <a href="#/wishlist/share" class="btn btn-default btn-md" role="button"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Share</a>
+        </p>
+        </div>
+    </div>
+    
+    <div>
+        <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+    </div>
+    <div data-ng-repeat="item in items track by $index">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                
+                <div class="media">
+                    <div class="media-left">
+                        <div style="height:180px;width:180px">
+                            <a href="{{ item.url }}">
+                                <img class="media-object" data-ng-src="{{ item.thumbnail }}" alt="{{ item.title }}" style="max-height:100%;max-width:100%">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="media-body">
+                        <a href="{{ item.url }}"> <h4 class="media-heading">{{ item.title }}</h4></a>
+                        <p>{{ item.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>

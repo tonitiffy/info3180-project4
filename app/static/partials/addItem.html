@@ -1,0 +1,47 @@
+<style type="text/css">
+    .imgborder{
+    
+        border-color: #428bca;
+    }
+</style>
+
+<div class="container">
+    <div class="wish-header">
+        <div>
+            <h1>Keep those wishes coming</h1>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+            <form role="form">
+                <div class="form-group">
+                    <label for="url">Enter the URL for the item you want to add to your wishlist</label>
+                    <div class="input-group">
+                        <input class="form-control" type="url" name="url" data-ng-model="url" placeholder="URL" maxlength="500" required autofocus/>
+                        <span class="input-group-btn">
+                            <button type="button" data-ng-click="getDetails()" class="btn btn-info">{{ button }}</button>
+                        </span>
+                    </div>
+                </div>
+                <label>{{ imgInstruct }}</label>
+                <div class="row" >
+                    <div data-ng-repeat="thumbnail in thumbnails track by $index" class="col-lg-3 col-md-4 col-xs-6">
+                        <div class = "thumbnail" style="height:250px;width:250px" data-ng-class="{imgborder : $index == row}">
+                            <img data-ng-src="{{ thumbnail }}" data-ng-click="getThumbnail($index)" style="max-height:100%;max-width:100%">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="title" data-ng-model="title" placeholder="Title" maxlength="200"/>
+                </div>
+                <div class="form-group" >
+                    <textarea class="form-control" rows="5" type="text" name="description" data-ng-model="descript" placeholder="Description" maxlength="5000"> </textarea>
+                </div>
+                <button type="button" data-ng-click="add()" class="btn btn-info"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> {{ addButton }}</button>
+            </form>
+        </div>
+    </div>    
+    
+</div>
+
