@@ -20,14 +20,6 @@ from werkzeug.local import LocalProxy
 from flask.ext.cors import cross_origin
 
 
-from sqlalchemy.sql import exists
-from app.forms import UserProfileForm
-from datetime import datetime
-from random import randint
-from werkzeug import secure_filename
-
-
-
 current_user = LocalProxy(lambda: _request_ctx_stack.top.current_user)
 
 def authenticate(error):
